@@ -16,6 +16,16 @@
 		    display: block;
 			padding: 10px;
 		  }
+		  #current-conditions {
+		    background-color: #eee;
+		  }
+		  #ten_day-forecast {
+		    background-color: #ddd;
+		  }
+		  .days {
+			display: none;
+			width: 250px;
+		  }
 		</style>
         <script src="js/modernizr-2.6.2.min.js"></script>
     </head>
@@ -23,19 +33,21 @@
 		
 		<div id="current-conditions">
           <p>Current Conditions:</p>
+		  <img src="" id="icon" />
 		  <span id="weather"></span>
 		  <span id="location"></span>
 		  <span id="temp-current"></span>
 		  <span id="windchill"></span>
-		  <button id="get-btn">get the data</button>
+		  <button id="get-btn">Current Conditions</button>
 		</div>
 		
-		<div id="todays-forescast">
+		<div id="todays-forecast">
           <p>Today's Forescast</p>
 		</div>
 		
-		<div id="five_day-forescast">
-          <p>5 Day Forescast</p>
+		<div id="ten_day-forecast">
+          <p>10 Day Forescast</p>
+		  <button id="get-ten-btn">Ten Day Forecast</button>
 		</div>
 
 
