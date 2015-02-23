@@ -10,28 +10,12 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="css/styles.css">
-		<style>
-		  span {
-		    display: block;
-			padding: 10px;
-		  }
-		  #current-conditions {
-		    background-color: #eee;
-		  }
-		  #ten_day-forecast {
-		    background-color: #ddd;
-		  }
-		  .days {
-			display: none;
-			width: 250px;
-		  }
-		</style>
+        <link rel="stylesheet" href="css/main.css">
         <script src="js/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
-		
-		<div id="current-conditions">
+	  <div id="wrapper">
+		<div id="current-conditions" class="grid-pad col-100">
           <p>Current Conditions:</p>
 		  <img src="" id="icon" />
 		  <span id="weather"></span>
@@ -41,16 +25,17 @@
 		  <button id="get-btn">Current Conditions</button>
 		</div>
 		
-		<div id="todays-forecast">
-          <p>Today's Forescast</p>
+		<div id="three_day-forecast" class="grid-pad col-100">
+          <p>Three Day Forescast</p>
+		  <button id="get-three-btn">Three Day Forecast</button>
 		</div>
 		
-		<div id="ten_day-forecast">
+		<div id="ten_day-forecast" class="grid-pad col-100">
           <p>10 Day Forescast</p>
 		  <button id="get-ten-btn">Ten Day Forecast</button>
 		</div>
 
-
+	  </div><!-- End of wrapper -->
         <script src="js/jquery-1.11.1.js"></script>
         <script src="js/main.js"></script>
     </body>

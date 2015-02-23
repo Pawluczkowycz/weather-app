@@ -5,12 +5,17 @@ var andrew = function(jQuery) {
 		},
 		the_data: {},
 		the_forecast: {},
+		the_threeDay: {},
 		
 		saveData: function(data) {
 		  model.the_data = data.current_observation;
 		},
 		saveForecast: function(data) {
 		  model.the_forecast = data.forecast.txt_forecast;
+		  model.saveThreeDay();
+		},
+		saveThreeDay: function() {
+		  model.the_threeDay = model.the_forecast.forecastday.slice(0, 6);
 		}
 	  };
 	  
@@ -38,6 +43,7 @@ var andrew = function(jQuery) {
 		    .done( function(data) {
 				model.saveForecast(data);
 				view2.init();
+				view3.init();
 			} )
 			.fail( function(jqXHR, textStatus, errorThrown) {
 				showError(errorThrown);
@@ -48,6 +54,9 @@ var andrew = function(jQuery) {
 		},
 		getTheForecast: function() {
 		  return model.the_forecast;
+		},
+		getTheThreeDay: function() {
+		  return model.the_threeDay;
 		}
 	  };
 	  
@@ -88,7 +97,7 @@ var andrew = function(jQuery) {
 			  var $title = $('<span></span>'),
 				  $icon = $('<img />'),
 				  $text = $('<p></p>'),
-			      $div = $('<div class="days"></div>');
+			      $div = $('<div class="days col-20"></div>');
 			  $title.text(index.title);
 			  $icon.attr('src', index.icon_url);
 			  $text.text( index.fcttext);
@@ -105,8 +114,44 @@ var andrew = function(jQuery) {
 		
 		render: function() {		  
 		  this.getTenDaysBtn.on('click', function() {
-			$('.days').fadeToggle();
-			$('#current-conditions').children().slideToggle();
+			$('#ten_day-forecast .days').fadeToggle();
+			$('#three_day-forecast .days').fadeOut();
+			$('#current-conditions span, #current-conditions img').slideToggle();
+		  });
+		}
+	  };
+	  
+	  // Three Day Forecast
+	  var view3 = {
+		init: function() {		  
+		  this.getThreeDaysBtn = $('#get-three-btn');
+		  var link = $('#three_day-forecast');
+		  view3.data = controller.getTheThreeDay();		
+		  var days = view3.data;
+		  function fillForecast(index) {
+			  var $title = $('<span></span>'),
+				  $icon = $('<img />'),
+				  $text = $('<p></p>'),
+			      $div = $('<div class="days"></div>');
+			  $title.text(index.title);
+			  $icon.attr('src', index.icon_url);
+			  $text.text( index.fcttext);
+			  
+			  var temp = $($title).append($icon).append($text);
+			  $div.append(temp);
+			  link.append($div);
+		  }
+			
+		  days.forEach(fillForecast);
+		  
+		  view3.render();
+		},
+		
+		render: function() {		  
+		  this.getThreeDaysBtn.on('click', function() {
+			$('#three_day-forecast .days').fadeToggle();
+			$('#ten_day-forecast .days').fadeOut();
+			$('#current-conditions span, #current-conditions img').slideToggle();
 		  });
 		}
 	  };
