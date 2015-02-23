@@ -75,13 +75,15 @@ var andrew = function(jQuery) {
 		},
 		
 		render: function() {
+		  this.getBtn.next('.days').fadeIn();
 		  this.getBtn.on('click', function() {
-		  view1.data = controller.getTheData();
-		  view1.icon.attr('src', view1.data.icon_url);
-		  view1.locationSpan.text(view1.data.display_location.full);
-		  view1.currentTempSpan.text(view1.data.temperature_string);
-		  view1.weatherSpan.text(view1.data.weather);
-		  view1.windchillSpan.text('Windchill: ' + view1.data.windchill_string);
+		    view1.data = controller.getTheData();
+		    view1.icon.attr('src', view1.data.icon_url);
+		    view1.locationSpan.text(view1.data.display_location.full);
+		    view1.currentTempSpan.text(view1.data.temperature_string);
+		    view1.weatherSpan.text(view1.data.weather);
+		    view1.windchillSpan.text('Windchill: ' + view1.data.windchill_string);
+		    view1.getBtn.next('.days').slideToggle();
 		  });
 		}
 	  };
@@ -97,13 +99,15 @@ var andrew = function(jQuery) {
 			  var $title = $('<span></span>'),
 				  $icon = $('<img />'),
 				  $text = $('<p></p>'),
-			      $div = $('<div class="days col-20"></div>');
+			      $div = $('<div class="col-20"></div>'),
+				  $mod = $('<div class="days"></div>');
 			  $title.text(index.title);
 			  $icon.attr('src', index.icon_url);
 			  $text.text( index.fcttext);
 			  
 			  var temp = $($title).append($icon).append($text);
-			  $div.append(temp);
+			  $mod.append(temp);
+			  $div.append($mod);
 			  link.append($div);
 		  }
 			
@@ -115,7 +119,7 @@ var andrew = function(jQuery) {
 		render: function() {		  
 		  this.getTenDaysBtn.on('click', function() {
 			$('#ten_day-forecast .days').fadeToggle();
-			$('#three_day-forecast .days').fadeOut();
+			$('#three_day-forecast .days, #current-conditions .days').fadeOut();
 			$('#current-conditions span, #current-conditions img').slideToggle();
 		  });
 		}
@@ -132,13 +136,15 @@ var andrew = function(jQuery) {
 			  var $title = $('<span></span>'),
 				  $icon = $('<img />'),
 				  $text = $('<p></p>'),
-			      $div = $('<div class="days"></div>');
+			      $div = $('<div class="col-20"></div>'),
+				  $mod = $('<div class="days"></div>');
 			  $title.text(index.title);
 			  $icon.attr('src', index.icon_url);
 			  $text.text( index.fcttext);
 			  
 			  var temp = $($title).append($icon).append($text);
-			  $div.append(temp);
+			  $mod.append(temp);
+			  $div.append($mod);
 			  link.append($div);
 		  }
 			
@@ -150,7 +156,7 @@ var andrew = function(jQuery) {
 		render: function() {		  
 		  this.getThreeDaysBtn.on('click', function() {
 			$('#three_day-forecast .days').fadeToggle();
-			$('#ten_day-forecast .days').fadeOut();
+			$('#ten_day-forecast .days, #current-conditions .days').fadeOut();
 			$('#current-conditions span, #current-conditions img').slideToggle();
 		  });
 		}
