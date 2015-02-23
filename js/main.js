@@ -7,23 +7,7 @@ var andrew = function(jQuery) {
 		the_forecast: {},
 		
 		saveData: function(data) {
-		  var location,
-		      currentTemp,
-			  windchillString,
-			  weather,
-			  icon;
-			  
-		  location = data.current_observation.display_location.full;
-		  currentTemp = data.current_observation.temperature_string;
-		  windchill = data.current_observation.windchill_string;
-		  weather = data.current_observation.weather;
-		  icon = data.current_observation.icon_url;
-		  
-		  model.the_data.location = location;
-		  model.the_data.currentTemp = currentTemp;
-		  model.the_data.windchill = windchill;
-		  model.the_data.weather = weather;
-		  model.the_data.icon = icon;
+		  model.the_data = data.current_observation;
 		},
 		saveForecast: function(data) {
 		  model.the_forecast = data.forecast.txt_forecast;
@@ -84,11 +68,11 @@ var andrew = function(jQuery) {
 		render: function() {
 		  this.getBtn.on('click', function() {
 		  view1.data = controller.getTheData();
-		  view1.icon.attr('src', view1.data.icon);
-		  view1.locationSpan.text(view1.data.location);
-		  view1.currentTempSpan.text(view1.data.currentTemp);
+		  view1.icon.attr('src', view1.data.icon_url);
+		  view1.locationSpan.text(view1.data.display_location.full);
+		  view1.currentTempSpan.text(view1.data.temperature_string);
 		  view1.weatherSpan.text(view1.data.weather);
-		  view1.windchillSpan.text('Windchill: ' + view1.data.windchill);
+		  view1.windchillSpan.text('Windchill: ' + view1.data.windchill_string);
 		  });
 		}
 	  };
