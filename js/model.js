@@ -125,7 +125,7 @@ var savedView = {
 		$saved.append($div);
 
 		$title.on('click', function() {
-		  currentView.render(savedView.placeObj[$local]);
+		  currentView.render($place);
 		});
 	  }
 };
