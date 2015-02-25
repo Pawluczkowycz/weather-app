@@ -15,13 +15,18 @@
     </head>
     <body>
 	  <div id="wrapper">
+	    <form>
+	      City: <input type="text" id="city">
+		  State: <input type="text" id="state">
+		  <button id="city-state">Submit</button>
+		</form>
 		<div id="current-conditions" class="grid-pad col-100">
 		  <p>Current Conditions:</p>
 		  <button id="get-btn">Current Conditions</button>
-		  <div class="days">            
+		  <div class="days">
+			<span id="location"></span>          
 		    <img src="" id="icon" />
-		    <span id="weather"></span>
-		    <span id="location"></span>
+		    <span id="weather"></span>		    
 		    <span id="temp-current"></span>
 		    <span id="windchill"></span>		    
 		  </div>
