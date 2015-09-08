@@ -3,47 +3,177 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
+<html>
+   <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link href='https://fonts.googleapis.com/css?family=Raleway:600,400,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css">
-        <script src="js/modernizr-2.6.2.min.js"></script>
+        <link rel="stylesheet" href="css/andrew.css">
+
     </head>
     <body>
 	  <div id="wrapper">
-	    <form>
-	      City: <input type="text" id="city">
-		  State: <input type="text" id="state">
-		  <button id="city-state">Submit</button>
-		</form>
-		<div id="current-conditions" class="grid-pad col-100">
-		  <p>Current Conditions:</p>
-		  <button id="get-btn">Current Conditions</button>
-		  <div class="days">
-			<span id="location"></span>          
-		    <img src="" id="icon" />
-		    <span id="weather"></span>		    
-		    <span id="temp-current"></span>
-		    <span id="windchill"></span>		    
+	    
+		<div class="grid-pad col-100">
+		  <div class="border-radius-Top module">
+		    <h1 class="margin-Top-none">Weather App</h1>
+		  	<button id="extended-forecast-btn">7 Day Forecast</button>
+			  <button id="three-day-btn">Current Conditions</button>
+			  <button id="search-btn">New Location</button>
+		  </div>
+		  <div class="module form">
+		    <h3 class="margin-Top-none">New Location:</h3>
+	        <form>
+	          <span>City: </span><input type="text" id="city" class="margin-Bottom-small">
+		        <span>State: </span><input type="text" id="state" class="display-block margin-Bottom-small">
+            <button id="city-state" class="margin-Top-small margin-Right">Submit</button>
+            <button id="cancel-btn" class="margin-Top-small">Cancel</button>
+		    </form>
 		  </div>
 		</div>
-		
-		<div id="three_day-forecast" class="grid-pad col-100">
-          <p>Three Day Forescast</p>
-		  <button id="get-three-btn">Three Day Forecast</button>
+	<div id="flipper">	
+		<div id="currentConditions" class="grid-pad col-100 weather">
+		  <div class="module current">
+		    <h2 id="location" class="margin-TopBottom-none"></h2>
+        <p id="time" class="margin-Top-small"></p>
+        <h3 class="margin-Bottom-small">Currently:</h3>
+        <img src="" id="icon">			
+        <p id="weather" class="margin-Bottom-none"></p>
+        <p id="temp" class="margin-Top-none"></p>
+        <h3 class="margin-Bottom-small">Today:</h3>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-1">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-2">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-3">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-4">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-5">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+      
+      <div class="module">
+        <span class="display-inline text-small">Weather data provided by:</span>
+        <img id="logo" class="display-inlineBlock" src="images/wundergroundLogo_4c.png" alt="wunderground logo" />
+      </div>
 		</div>
 		
-		<div id="ten_day-forecast" class="grid-pad col-100">
-          <p>10 Day Forescast</p>
-		  <button id="get-ten-btn">Ten Day Forecast</button>
+		<div id="tenDayForecast" class="grid-pad col-100 weather">
+		  
+		  <div class="module period-1">
+        <h2 class="margin-Top-none">7 Day Forecast:</h2>
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-2">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-3">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-4">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-5">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-6">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-7">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-8">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-9">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-10">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-11">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+		  
+		  <div class="module period-12">
+        <img src="" id="icon">
+        <h4 id="title" class="margin-Bottom-small"></h4>
+        <p id="fcttext" class="margin-Top-small"></p>
+		  </div>
+      
+      <div class="module">
+        <span class="display-inlineBlock text-small">Weather data provided by:</span>
+        <img id="logo" src="images/wundergroundLogo_4c.png" alt="wunderground logo" />
+      </div>
 		</div>
+  </div><!-- End of FLipper Div -->
 
 	  </div><!-- End of wrapper -->
-        <script src="js/jquery-1.11.1.js"></script>
-        <script src="js/main.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="javascript/jquery-1.11.1.js"><\/script>')</script>
+<script src="javascript/velocity-min.js"></script>
+<script src="javascript/velocity-ui-min.js"></script>
+<script src="javascript/andrew-weather.js"></script>
+<script src="javascript/andrew-animate.js"></script>
+
     </body>
 </html>
